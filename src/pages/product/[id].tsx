@@ -50,7 +50,7 @@ export default function Product({ product }: ProductProps) {
       </Head>
       <ProductContainer>
         <ImageContainer>
-          <Image src={product.imageUrl} alt="" width={520} height={480} />
+          <Image src={product?.imageUrl} alt="" width={520} height={480} />
         </ImageContainer>
         <ProductDetails>
           <h1>{product?.name}</h1>
