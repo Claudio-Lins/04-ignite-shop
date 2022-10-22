@@ -30,7 +30,7 @@ export default function Product({ product }: ProductProps) {
     try {
       setIsCreatingCheckoutSession(true)
       const response = await axios.post("/api/checkout", {
-        priceId: product.defaultPriceId,
+        priceId: product?.defaultPriceId,
       })
 
       const { checkoutUrl } = response.data
@@ -54,8 +54,8 @@ export default function Product({ product }: ProductProps) {
         </ImageContainer>
         <ProductDetails>
           <h1>{product?.name}</h1>
-          <span>{product.price}</span>
-          <p>{product.description}</p>
+          <span>{product?.price}</span>
+          <p>{product?.description}</p>
           <button
             disabled={isCreatingCheckoutSession}
             onClick={handleBuyProduct}
