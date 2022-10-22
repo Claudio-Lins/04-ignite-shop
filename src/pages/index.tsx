@@ -2,11 +2,11 @@ import "keen-slider/keen-slider.min.css"
 import { useKeenSlider } from "keen-slider/react"
 import type { GetStaticProps } from "next"
 import Image from "next/future/image"
+import Head from "next/head"
+import Link from "next/link"
 import Stripe from "stripe"
 import { stripe } from "../lib/stripe"
 import { HomeContainer, Product } from "../styles/pages/home"
-import Link from "next/link"
-import Head from "next/head"
 
 interface HomeProps {
   products: {

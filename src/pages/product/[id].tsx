@@ -84,14 +84,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
   params,
 }) => {
- if (!params.id) {
-   return {
-     redirect: {
-       destination: "/",
-       permanent: false,
-     },
-   }
- }
+  if (!params.id) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    }
+  }
   const productId = params?.id
 
   const product = await stripe.products.retrieve(productId as string, {
