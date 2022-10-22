@@ -46,14 +46,14 @@ export default function Product({ product }: ProductProps) {
   return (
     <>
       <Head>
-        <title>{product.name} | IgniteShop</title>
+        <title>{product?.name} | IgniteShop</title>
       </Head>
       <ProductContainer>
         <ImageContainer>
           <Image src={product.imageUrl} alt="" width={520} height={480} />
         </ImageContainer>
         <ProductDetails>
-          <h1>{product.name}</h1>
+          <h1>{product?.name}</h1>
           <span>{product.price}</span>
           <p>{product.description}</p>
           <button
