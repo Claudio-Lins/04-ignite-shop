@@ -42,6 +42,7 @@ export const CartProduct = styled('div', {
   alignItems: 'center',
   gap: '1.25rem',
   height: '5.8125rem',
+  marginBottom: '1.25rem',
 })
 
 export const CartProductImage = styled("div", {
