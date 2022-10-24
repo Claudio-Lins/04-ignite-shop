@@ -5,6 +5,7 @@ import Image from "next/future/image"
 import Head from "next/head"
 import Link from "next/link"
 import Stripe from "stripe"
+import { CartButton } from "../components/CartButton"
 import { stripe } from "../lib/stripe"
 import { HomeContainer, Product } from "../styles/pages/home"
 
@@ -39,8 +40,11 @@ export default function Home({ products }: HomeProps) {
             <Product className="keen-slider__slide">
               <Image src={product?.imageUrl} alt="" width={520} height={480} />
               <footer>
-                <strong>{product.name}</strong>
-                <span>{product.price}</span>
+                <div>
+                  <strong>{product.name}</strong>
+                  <span>{product.price}</span>
+                </div>
+                <CartButton color={"green"} size={"large"}/>
               </footer>
             </Product>
           </Link>
