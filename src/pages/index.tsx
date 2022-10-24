@@ -6,16 +6,14 @@ import Head from "next/head"
 import Link from "next/link"
 import Stripe from "stripe"
 import { CartButton } from "../components/CartButton"
+import { IProduct } from "../context/CartContext"
+import { useCart } from "../hooks/useCart"
 import { stripe } from "../lib/stripe"
 import { HomeContainer, Product } from "../styles/pages/home"
+import { MouseEvent } from "react"
 
 interface HomeProps {
-  products: {
-    id: string
-    price: string
-    imageUrl: string
-    name: string
-  }[]
+  products: IProduct[]
 }
 
 export default function Home({ products }: HomeProps) {
@@ -25,6 +23,13 @@ export default function Home({ products }: HomeProps) {
       spacing: 48,
     },
   })
+
+  const { cartItems, addToCart, checkIfItemAlreadyExists } = useCart()
+
+  function handleAddToCart(e: MouseEvent<HTMLButtonElement>, product: IProduct) {
+    e.preventDefault()
+    addToCart(product)
+  }
   return (
     <>
       <Head>
@@ -44,7 +49,11 @@ export default function Home({ products }: HomeProps) {
                   <strong>{product.name}</strong>
                   <span>{product.price}</span>
                 </div>
-                <CartButton color={"green"} size={"large"}/>
+                <CartButton
+                  color={"green"}
+                  size={"large"}
+                  onClick={(e) => handleAddToCart(e, product)}
+                />
               </footer>
             </Product>
           </Link>
